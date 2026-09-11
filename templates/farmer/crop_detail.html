@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ crop.name }} | Kisan Sathi</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+.detail-page{min-height:100vh;padding:50px 20px;background:#f7faf7}
+.detail-container{max-width:1000px;margin:auto}
+.detail-top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:25px}
+.detail-card,.scan-card{background:#fff;border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.07);margin-bottom:22px}
+.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.stat{padding:18px;background:#f2f7f2;border-radius:14px}.stat small{display:block;color:#6b756d}.stat strong{font-size:24px}
+.healthbar{height:12px;background:#e5ebe5;border-radius:20px;overflow:hidden;margin-top:10px}.healthfill{height:100%;background:#3d8b57}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;border:0;font-weight:700;cursor:pointer}
+.primary{background:#2f7d46;color:white}.secondary{background:#edf4ee;color:#2f7d46}
+.scan-list{display:grid;gap:14px}.scan-row{display:flex;gap:18px;align-items:center;border:1px solid #e5ebe5;padding:14px;border-radius:14px}.scan-row img{width:90px;height:70px;object-fit:cover;border-radius:10px}.scan-row div{flex:1}
+@media(max-width:700px){.detail-grid{grid-template-columns:repeat(2,1fr)}.detail-top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="detail-page"><div class="detail-container">
+<a href="{% url 'farmer_dashboard' %}" class="back-link">← Back to Dashboard</a>
+<div class="detail-top"><div><p>YOUR CROP</p><h1>{{ crop.name }}</h1><p>🌿 {{ crop.crop_type }} • 📍 {{ crop.field_name|default:"Field" }}</p></div>
+<a class="btn primary" href="{% url 'add_scan' crop.id %}">📷 Upload Weekly Scan</a></div>
+<div class="detail-card">
+<h2>Crop Health</h2><div class="detail-grid">
+<div class="stat"><small>Status</small><strong>{{ crop.health_status }}</strong></div>
+<div class="stat"><small>Health</small><strong>{{ crop.health_percentage }}%</strong></div>
+<div class="stat"><small>Area</small><strong>{{ crop.area|default:"—" }}</strong></div>
+<div class="stat"><small>Next Scan</small><strong>{% if next_scan %}{{ next_scan|date:"d M" }}{% else %}Start today{% endif %}</strong></div>
+</div>
+<div class="healthbar"><div class="healthfill" style="width:{{ crop.health_percentage }}%"></div></div>
+<p style="margin-top:18px">For consistent monitoring, upload a crop photo every <strong>7 days</strong>. Each scan is stored against this crop so you can compare the record over time.</p>
+</div>
+<div class="scan-card"><h2>Scan History</h2><div class="scan-list">
+{% for scan in scans %}
+<div class="scan-row">
+<img src="{{ scan.image.url }}" alt="Crop scan">
+<div><strong>{{ scan.health_status }} — {{ scan.health_percentage }}%</strong><br><span>{{ scan.scanned_at|date:"d M Y, h:i A" }}</span>{% if scan.notes %}<br><small>{{ scan.notes }}</small>{% endif %}</div>
+</div>
+{% empty %}<p>No scan uploaded yet. Add the first photo to begin the 7-day monitoring record.</p>{% endfor %}
+</div></div>
+</div></main>
+</body></html>

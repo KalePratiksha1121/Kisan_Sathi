@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Scan {{ crop.name }} | Kisan Sathi</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/add_crop.css' %}">
+<style>.hint{padding:14px;background:#eef7ef;border-radius:12px;margin-bottom:20px}.scan-form .form-group{margin-bottom:18px}.scan-form textarea{width:100%;box-sizing:border-box}</style>
+</head>
+<body><main class="add-crop-page"><div class="add-crop-container">
+<a href="{% url 'crop_detail' crop.id %}" class="back-link">← Back to {{ crop.name }}</a>
+<div class="add-crop-header"><div class="add-crop-icon">📷</div><h1>Weekly Crop Scan</h1><p>Upload today's photo and record what you observe.</p></div>
+<div class="hint"><strong>Monitoring rule:</strong> Upload a new photo approximately every 7 days. The previous scans remain saved for comparison.</div>
+<form method="POST" enctype="multipart/form-data" class="add-crop-form scan-form">{% csrf_token %}
+{% if form.errors %}<div class="form-error">Please check the information entered. An image is required.</div>{% endif %}
+<div class="form-group"><label>Crop Photo</label>{{ form.image }}</div>
+<div class="form-group"><label>Health Status</label>{{ form.health_status }}</div>
+<div class="form-group"><label>Health Percentage</label>{{ form.health_percentage }}</div>
+<div class="form-group"><label>Observation / Notes</label>{{ form.notes }}</div>
+<div class="form-actions"><a href="{% url 'crop_detail' crop.id %}" class="cancel-button">Cancel</a><button type="submit" class="save-crop-button">💾 Save Scan</button></div>
+</form></div></main></body></html>

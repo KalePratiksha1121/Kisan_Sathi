@@ -1,0 +1,124 @@
+
+
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Crop | Kisan Sathi</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_crop.css' %}">
+</head>
+
+<body>
+
+    <main class="add-crop-page">
+
+        <div class="add-crop-container">
+
+            <a href="{% url 'farmer_dashboard' %}" class="back-link">
+                ← Back to Dashboard
+            </a>
+
+            <div class="add-crop-header">
+                <div class="add-crop-icon">
+                    🌱
+                </div>
+
+                <h1>Add New Crop</h1>
+
+                <p>
+                    Add your crop details to start monitoring its health.
+                </p>
+            </div>
+
+            <form method="POST" class="add-crop-form">
+
+                {% csrf_token %}
+
+                {% if form.errors %}
+                    <div class="form-error">
+                        Please check the information you entered.
+                    </div>
+                {% endif %}
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="{{ form.name.id_for_label }}">
+                            Crop Name
+                        </label>
+                        {{ form.name }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.crop_type.id_for_label }}">
+                            Crop Type
+                        </label>
+                        {{ form.crop_type }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.field_name.id_for_label }}">
+                            Field Name
+                        </label>
+                        {{ form.field_name }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.area.id_for_label }}">
+                            Field Area (Acres)
+                        </label>
+                        {{ form.area }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.health_status.id_for_label }}">
+                            Current Health
+                        </label>
+                        {{ form.health_status }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.health_percentage.id_for_label }}">
+                            Health Percentage
+                        </label>
+                        {{ form.health_percentage }}
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="{{ form.planted_date.id_for_label }}">
+                            Planted Date
+                        </label>
+                        {{ form.planted_date }}
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <a href="{% url 'farmer_dashboard' %}" class="cancel-button">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="save-crop-button">
+                        🌱 Save Crop
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

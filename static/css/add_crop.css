@@ -1,0 +1,391 @@
+/* =========================================
+   KISAN SATHI — ADD CROP PAGE
+   ========================================= */
+
+.add-crop-page {
+    min-height: 100vh;
+    padding: 110px 20px 60px;
+    background: #f4f8f2;
+}
+
+.add-crop-container {
+    width: min(850px, 100%);
+    margin: 0 auto;
+}
+
+/* Back button */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 25px;
+
+    color: #2e7d32;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #1b5e20;
+    transform: translateX(-3px);
+}
+
+
+/* Header */
+
+.add-crop-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.add-crop-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e4f4df;
+
+    font-size: 31px;
+
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.10);
+}
+
+.add-crop-header h1 {
+    margin: 0 0 8px;
+
+    color: #1d2b1f;
+
+    font-size: 36px;
+    font-weight: 750;
+}
+
+.add-crop-header p {
+    margin: 0;
+
+    color: #68756a;
+
+    font-size: 15px;
+}
+
+
+/* Form card */
+
+.add-crop-form {
+    padding: 36px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2ebe0;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px rgba(34, 72, 38, 0.09);
+
+    animation: cropFormEnter 0.5s ease both;
+}
+
+@keyframes cropFormEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Form grid */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 23px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* Labels */
+
+.form-group label {
+    color: #2d392f;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* Inputs */
+
+.form-control {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d7e2d5;
+    border-radius: 11px;
+
+    background: #fbfdfb;
+
+    color: #263228;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-control:hover {
+    border-color: #b9ceb6;
+}
+
+.form-control:focus {
+    border-color: #4caf50;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+.form-control::placeholder {
+    color: #9aa59b;
+}
+
+
+/* Error */
+
+.form-error {
+    margin-bottom: 22px;
+
+    padding: 13px 16px;
+
+    border-radius: 10px;
+
+    background: #fff1f1;
+
+    border: 1px solid #ffd4d4;
+
+    color: #c62828;
+
+    font-size: 14px;
+}
+
+
+/* Buttons */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 32px;
+    padding-top: 25px;
+
+    border-top: 1px solid #e8eee6;
+}
+
+.cancel-button,
+.save-crop-button {
+    min-height: 46px;
+
+    padding: 12px 23px;
+
+    border-radius: 11px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0f3ef;
+
+    color: #465148;
+}
+
+.cancel-button:hover {
+    background: #e5ebe3;
+
+    transform: translateY(-2px);
+}
+
+.save-crop-button {
+    border: none;
+
+    background: #2e7d32;
+
+    color: #ffffff;
+
+    box-shadow: 0 6px 15px rgba(46, 125, 50, 0.20);
+}
+
+.save-crop-button:hover {
+    background: #256b29;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 9px 20px rgba(46, 125, 50, 0.25);
+}
+
+.save-crop-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+body.dark-theme .add-crop-page {
+    background: #111827;
+}
+
+body.dark-theme .add-crop-header h1 {
+    color: #f9fafb;
+}
+
+body.dark-theme .add-crop-header p {
+    color: #cbd5e1;
+}
+
+body.dark-theme .add-crop-icon {
+    background: #1d3b24;
+}
+
+body.dark-theme .add-crop-form {
+    background: #1f2937;
+
+    border-color: #374151;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.20);
+}
+
+body.dark-theme .form-group label {
+    color: #f3f4f6;
+}
+
+body.dark-theme .form-control {
+    background: #111827;
+
+    border-color: #374151;
+
+    color: #f9fafb;
+}
+
+body.dark-theme .form-control:focus {
+    background: #111827;
+
+    border-color: #4caf50;
+}
+
+body.dark-theme .form-actions {
+    border-color: #374151;
+}
+
+body.dark-theme .cancel-button {
+    background: #374151;
+
+    color: #f3f4f6;
+}
+
+body.dark-theme .cancel-button:hover {
+    background: #4b5563;
+}
+
+body.dark-theme .back-link {
+    color: #86efac;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .add-crop-page {
+        padding: 95px 15px 40px;
+    }
+
+    .add-crop-header h1 {
+        font-size: 29px;
+    }
+
+    .add-crop-form {
+        padding: 23px 18px;
+
+        border-radius: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 19px;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .cancel-button,
+    .save-crop-button {
+        width: 100%;
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+}

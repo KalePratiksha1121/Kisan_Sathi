@@ -1,0 +1,1748 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="ShetiMitra - Smart crop health monitoring and farming assistance platform.">
+
+    <title>ShetiMitra | Smart Farming</title>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+     PAGE LOADER
+===================================================== -->
+
+    <div class="page-loader" id="pageLoader">
+
+        <div class="loader-content">
+
+            <div class="loader-logo">
+                🌱
+            </div>
+
+            <div class="loader-ring"></div>
+
+            <p>Preparing your farm dashboard...</p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <!-- BRAND -->
+
+            <a href="#home" class="brand">
+
+                <div class="brand-mark">
+                    🌱
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>ShetiMitra</strong>
+
+                    <span>
+                        Smart Farming Companion
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+
+            <nav class="desktop-nav">
+
+                <a href="#home" class="nav-link active" data-i18n="nav_home">
+                    Home
+                </a>
+
+                <a href="#crops" class="nav-link" data-i18n="nav_crops">
+                    My Crops
+                </a>
+
+                <a href="#scan" class="nav-link" data-i18n="nav_scan">
+                    Scan Crop
+                </a>
+
+                <a href="#monitoring" class="nav-link" data-i18n="nav_monitoring">
+                    Monitoring
+                </a>
+
+                <a href="#history" class="nav-link" data-i18n="nav_history">
+                    History
+                </a>
+
+            </nav>
+
+
+            <!-- RIGHT NAV -->
+
+            <div class="nav-right">
+
+                <!-- LANGUAGE -->
+
+                <div class="language-switcher">
+
+                    <span>🌐</span>
+
+                    <select id="languageSelector">
+
+                        <option value="en">
+                            English
+                        </option>
+
+                        <option value="mr">
+                            मराठी
+                        </option>
+
+                        <option value="hi">
+                            हिंदी
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <button class="icon-button" id="notificationButton" type="button" aria-label="Notifications">
+                    🔔
+                </button>
+
+
+                <!-- PROFILE -->
+
+                <button class="profile-button" id="profileButton" type="button" aria-label="Profile">
+                    👤
+                </button>
+
+
+                <!-- MOBILE MENU -->
+
+                <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open menu">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE NAVIGATION -->
+
+        <nav class="mobile-nav" id="mobileNav">
+
+            <a href="#home" class="nav-link">
+                Home
+            </a>
+
+            <a href="#crops" class="nav-link">
+                My Crops
+            </a>
+
+            <a href="#scan" class="nav-link">
+                Scan Crop
+            </a>
+
+            <a href="#monitoring" class="nav-link">
+                Monitoring
+            </a>
+
+            <a href="#history" class="nav-link">
+                History
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+     HERO
+===================================================== -->
+
+    <section class="hero" id="home">
+
+        <!-- Background -->
+
+        <div class="hero-background"></div>
+
+        <div class="hero-gradient"></div>
+
+        <div class="hero-noise"></div>
+
+
+        <!-- Decorative glow -->
+
+        <div class="hero-orb orb-one"></div>
+
+        <div class="hero-orb orb-two"></div>
+
+
+        <div class="hero-container">
+
+
+            <!-- HERO CONTENT -->
+
+            <div class="hero-content">
+
+
+                <div class="hero-badge">
+
+                    <span class="live-dot"></span>
+
+                    <span data-i18n="hero_badge">
+                        SMART FARMING PLATFORM
+                    </span>
+
+                </div>
+
+
+                <h1>
+
+                    <span data-i18n="hero_title_1">
+                        Healthier Crops.
+                    </span>
+
+                    <br>
+
+                    <span class="hero-highlight" data-i18n="hero_title_2">
+                        Better Harvests.
+                    </span>
+
+                </h1>
+
+
+                <p data-i18n="hero_description">
+
+                    Monitor your crops, identify health risks early,
+                    and make smarter farming decisions with ShetiMitra.
+
+                </p>
+
+
+                <!-- HERO BUTTONS -->
+
+                <div class="hero-actions">
+
+                    <button class="btn-primary" id="heroScanButton" type="button">
+
+                        <span>📷</span>
+
+                        <span data-i18n="scan_crop">
+                            Scan My Crop
+                        </span>
+
+                        <span>→</span>
+
+                    </button>
+
+
+                    <a href="#crops" class="btn-secondary">
+
+                        <span data-i18n="view_crops">
+                            View My Crops
+                        </span>
+
+                        <span>↗</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- TRUST ITEMS -->
+
+                <div class="hero-trust">
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            ✓
+                        </span>
+
+                        <span data-i18n="trust_early">
+                            Early Detection
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            ✓
+                        </span>
+
+                        <span data-i18n="trust_monitor">
+                            Crop Monitoring
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <span class="trust-icon">
+                            ✓
+                        </span>
+
+                        <span data-i18n="trust_languages">
+                            Multiple Languages
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HERO DASHBOARD CARD -->
+
+            <div class="hero-dashboard-card">
+
+
+                <div class="dashboard-card-head">
+
+                    <div>
+
+                        <span class="card-label">
+                            FARM OVERVIEW
+                        </span>
+
+                        <h3>
+                            Crop Health
+                        </h3>
+
+                    </div>
+
+
+                    <div class="health-status">
+
+                        <span class="health-status-dot"></span>
+
+                        Healthy
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- HEALTH SCORE -->
+
+                <div class="health-score-area">
+
+                    <div class="health-circle">
+
+                        <div class="health-circle-inner">
+
+                            <strong class="health-score-text">
+                                {{ avg_health }}%
+                            </strong>
+
+                            <span>
+                                Overall
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="health-score-info">
+
+                        <span>
+                            Farm Health
+                        </span>
+
+                        <strong>
+                            Looking Good
+                        </strong>
+
+                        <small>
+                            Updated today
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MINI STATS -->
+
+                <div class="mini-stat-grid">
+
+                    <div class="mini-stat">
+
+                        <span class="mini-stat-icon">
+                            🌱
+                        </span>
+
+                        <div>
+
+                            <small>
+                                Active Crops
+                            </small>
+
+                            <strong>{{ active_crops|stringformat:"02d" }}</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-stat">
+
+                        <span class="mini-stat-icon">
+                            📷
+                        </span>
+
+                        <div>
+
+                            <small>
+                                Scans
+                            </small>
+
+                            <strong>{{ total_scans|stringformat:"02d" }}</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-stat">
+
+                        <span class="mini-stat-icon">
+                            💧
+                        </span>
+
+                        <div>
+
+                            <small>
+                                Soil Status
+                            </small>
+
+                            <strong>
+                                Good
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-stat">
+
+                        <span class="mini-stat-icon">
+                            ☀️
+                        </span>
+
+                        <div>
+
+                            <small>
+                                Weather
+                            </small>
+
+                            <strong>
+                                28°C
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-label">
+                    SAMPLE FARM DATA
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HERO BOTTOM STATS -->
+
+        <div class="hero-bottom">
+
+            <div class="hero-bottom-container">
+
+
+                <div class="bottom-stat">
+
+                    <strong>
+                        24/7
+                    </strong>
+
+                    <span>
+                        Crop Monitoring
+                    </span>
+
+                </div>
+
+
+                <span class="stat-line"></span>
+
+
+                <div class="bottom-stat">
+
+                    <strong>
+                        3+
+                    </strong>
+
+                    <span>
+                        Languages
+                    </span>
+
+                </div>
+
+
+                <span class="stat-line"></span>
+
+
+                <div class="bottom-stat">
+
+                    <strong>
+                        Smart
+                    </strong>
+
+                    <span>
+                        Farm Insights
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     INTRO / FEATURES
+===================================================== -->
+
+    <section class="intro-section" id="scan">
+
+        <div class="section-container">
+
+
+            <div class="section-heading">
+
+                <span class="section-eyebrow">
+                    HOW IT HELPS
+                </span>
+
+                <h2>
+                    Everything your crop needs,
+                    <span>in one place.</span>
+                </h2>
+
+                <p>
+                    ShetiMitra brings crop monitoring,
+                    scanning and farm insights together
+                    in one simple platform.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-grid">
+
+
+                <!-- FEATURE 1 -->
+
+                <article class="feature-card feature-one">
+
+                    <div class="feature-top">
+
+                        <span class="feature-number">
+                            01
+                        </span>
+
+                        <div class="feature-icon">
+                            📷
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-bottom">
+
+                        <h3>
+                            Scan Your Crop
+                        </h3>
+
+                        <p>
+                            Take a picture of your crop
+                            and keep a digital record of
+                            its health.
+                        </p>
+
+                        <span class="feature-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FEATURE 2 -->
+
+                <article class="feature-card feature-two">
+
+                    <div class="feature-top">
+
+                        <span class="feature-number">
+                            02
+                        </span>
+
+                        <div class="feature-icon">
+                            🌱
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-bottom">
+
+                        <h3>
+                            Track Your Crops
+                        </h3>
+
+                        <p>
+                            Keep all your crops organized
+                            and monitor their condition
+                            throughout the season.
+                        </p>
+
+                        <span class="feature-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FEATURE 3 -->
+
+                <article class="feature-card feature-three">
+
+                    <div class="feature-top">
+
+                        <span class="feature-number">
+                            03
+                        </span>
+
+                        <div class="feature-icon">
+                            ⚠️
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-bottom">
+
+                        <h3>
+                            Spot Risks Early
+                        </h3>
+
+                        <p>
+                            Understand possible crop
+                            risks before they become
+                            bigger problems.
+                        </p>
+
+                        <span class="feature-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FEATURE 4 -->
+
+                <article class="feature-card feature-four">
+
+                    <div class="feature-top">
+
+                        <span class="feature-number">
+                            04
+                        </span>
+
+                        <div class="feature-icon">
+                            📊
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-bottom">
+
+                        <h3>
+                            Farm Insights
+                        </h3>
+
+                        <p>
+                            View useful information about
+                            your crops and make informed
+                            farming decisions.
+                        </p>
+
+                        <span class="feature-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     SCAN PROMO
+===================================================== -->
+
+    <section class="scan-promo">
+
+        <div class="scan-promo-background"></div>
+
+
+        <div class="scan-promo-container">
+
+
+            <!-- SCAN VISUAL -->
+
+            <div class="scan-visual">
+
+                <div class="scan-ring ring-one"></div>
+
+                <div class="scan-ring ring-two"></div>
+
+
+                <div class="scan-camera">
+
+                    <div class="camera-top"></div>
+
+                    <div class="camera-lens">
+
+                        <span></span>
+
+                    </div>
+
+                    <div class="camera-flash"></div>
+
+                </div>
+
+
+                <div class="scan-floating-tag tag-one">
+                    🌿 Crop Health
+                </div>
+
+                <div class="scan-floating-tag tag-two">
+                    ✓ Ready to Scan
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div class="scan-promo-content">
+
+                <span class="section-eyebrow">
+                    QUICK SCAN
+                </span>
+
+                <h2>
+                    See what your crop
+                    is telling you.
+                </h2>
+
+                <p>
+                    Capture a clear image of your crop
+                    and keep its health information
+                    organized in your ShetiMitra dashboard.
+                </p>
+
+
+                <div class="scanner-points">
+
+                    <div>
+                        <span>✓</span>
+                        Simple crop scanning
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Digital health records
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Easy-to-understand insights
+                    </div>
+
+                </div>
+
+
+                <button class="btn-light" id="promoScanButton" type="button">
+
+                    <span>📷</span>
+
+                    Start Crop Scan
+
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     MY CROPS
+===================================================== -->
+
+    <section class="crops-section" id="crops">
+
+        <div class="section-container">
+
+
+            <div class="split-heading">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        MY FARM
+                    </span>
+
+                    <h2>
+                        Your crops,
+                        <span>at a glance.</span>
+                    </h2>
+
+                </div>
+
+                <button id="addCropButton" type="button" onclick="window.location.href='{% url 'add_crop' %}'">
+                    Add Crop
+                </button>
+            </div>
+
+
+
+            <div class="crop-grid">
+
+
+                {% for crop in crops %}
+
+                <article class="crop-card">
+
+                    <div class="crop-image crop-{{ crop.crop_type|lower }}" style="{% if crop.crop_type == 'Cotton' %}
+                        background-image: url('{% static 'images/cotton.jpg' %}');
+                        {% elif crop.crop_type == 'Soybean' %}
+                        background-image: url('{% static 'images/soyabin.jpg' %}');
+                        {% endif %}">
+
+                        <div class="crop-image crop-{{ crop.crop_type|lower }}">
+
+                            {% if crop.crop_type == "Cotton" %}
+                            <style>
+                                .crop- {
+                                        {
+                                        crop.id
+                                    }
+                                }
+
+                                    {
+                                    background-image: url("{% static 'images/cotton.jpg' %}");
+                                }
+                            </style>
+                            {% elif crop.crop_type == "Soybean" %}
+                            <style>
+                                .crop- {
+                                        {
+                                        crop.id
+                                    }
+                                }
+
+                                    {
+                                    background-image: url("{% static 'images/soyabin.jpg' %}");
+                                }
+                            </style>
+                            {% endif %}
+
+                            <div class="crop-image-label">
+                                🌿 {{ crop.crop_type }} Field
+                            </div>
+
+                            <span class="crop-health-pill {{ crop.health_status|lower }}">
+                                ● {{ crop.health_status }}
+                            </span>
+
+                        </div>
+
+                        <span class="crop-health-pill {{ crop.health_status|lower }}">
+                            ● {{ crop.health_status }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="crop-card-body">
+
+                        <div class="crop-title-row">
+
+                            <div>
+
+                                <h3>
+                                    {{ crop.name }}
+                                </h3>
+
+                                <p class="crop-location">
+                                    📍 {{ crop.field_name|default:"Field" }}
+                                    {% if crop.area %}
+                                    • {{ crop.area }} acres
+                                    {% endif %}
+                                </p>
+
+                            </div>
+
+                            <button class="crop-more" type="button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="crop-progress">
+
+                            <div class="progress-label">
+
+                                <span>
+                                    Crop Health
+                                </span>
+
+                                <strong>
+                                    {{ crop.health_percentage }}%
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-track">
+
+                                <span style="width:{{ crop.health_percentage }}%"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <a class="crop-scan-button" href="{% url 'crop_detail' crop.id %}">
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </article>
+
+                {% empty %}
+
+                <div class="no-crops-message">
+
+                    <div>🌱</div>
+
+                    <h3>No crops added yet</h3>
+
+                    <p>Add your first crop to start monitoring your farm.</p>
+
+                </div>
+
+                {% endfor %}
+
+
+                <!-- ADD CROP -->
+
+                <article class="add-crop-card" id="emptyAddCrop">
+
+                    <div class="add-crop-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Add another crop
+                    </h3>
+
+                    <p>
+                        Keep all your fields
+                        organized in one place.
+                    </p>
+
+                    <button id="addCropButtonSecondary" type="button"
+                        onclick="window.location.href='{% url 'add_crop' %}'">
+                        Add Crop
+                    </button>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     RISK MONITORING
+===================================================== -->
+
+    <section class="risk-section" id="monitoring">
+
+        <div class="risk-pattern"></div>
+
+
+        <div class="risk-container">
+
+
+            <!-- LEFT -->
+
+            <div class="risk-content">
+
+                <span class="section-eyebrow">
+                    FARM MONITORING
+                </span>
+
+                <h2>
+                    Stay ahead of
+                    crop risks.
+                </h2>
+
+                <p>
+                    Monitor important crop indicators
+                    and understand where your farm
+                    may need attention.
+                </p>
+
+
+                <div class="risk-feature-list">
+
+                    <div>
+
+                        <span>01</span>
+
+                        <p>
+                            Track crop health
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>02</span>
+
+                        <p>
+                            Monitor field conditions
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>03</span>
+
+                        <p>
+                            Identify areas needing attention
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DASHBOARD -->
+
+            <div class="risk-dashboard">
+
+
+                <div class="risk-dashboard-header">
+
+                    <div>
+
+                        <small>
+                            CURRENT FARM RISK
+                        </small>
+
+                        <h3>
+                            Moderate
+                        </h3>
+
+                    </div>
+
+
+                    <div class="risk-score">
+                        58
+                    </div>
+
+                </div>
+
+
+                <!-- METER -->
+
+                <div class="risk-meter">
+
+                    <div class="risk-meter-fill"></div>
+
+                </div>
+
+
+                <div class="risk-meter-labels">
+
+                    <span>
+                        Low
+                    </span>
+
+                    <span class="current">
+                        Current
+                    </span>
+
+                    <span>
+                        High
+                    </span>
+
+                </div>
+
+
+                <!-- DATA -->
+
+                <div class="risk-data-grid">
+
+
+                    <div class="risk-data">
+
+                        <span>🌡️</span>
+
+                        <div>
+
+                            <small>
+                                Temperature
+                            </small>
+
+                            <strong>
+                                28°C
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-data">
+
+                        <span>💧</span>
+
+                        <div>
+
+                            <small>
+                                Soil Moisture
+                            </small>
+
+                            <strong>
+                                Good
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-data">
+
+                        <span>☀️</span>
+
+                        <div>
+
+                            <small>
+                                Weather
+                            </small>
+
+                            <strong>
+                                Stable
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="risk-demo-note">
+
+                    <span>ℹ️</span>
+
+                    <p>
+                        Sample monitoring data for
+                        dashboard demonstration.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     HISTORY
+===================================================== -->
+
+    <section class="history-section" id="history">
+
+        <div class="section-container">
+
+
+            <div class="split-heading">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        ACTIVITY
+                    </span>
+
+                    <h2>
+                        Recent
+                        <span>scan history.</span>
+                    </h2>
+
+                </div>
+
+
+                <button class="outline-button" id="viewHistoryButton" type="button">
+                    View All →
+                </button>
+
+            </div>
+
+
+
+            <div class="history-list">
+                {% for scan in scans %}
+                <div class="history-item">
+                    <div class="history-icon {% if scan.health_status == 'Healthy' %}healthy{% else %}warning{% endif %}">
+                        {% if scan.health_status == 'Healthy' %}✓{% else %}!{% endif %}
+                    </div>
+                    <div class="history-main">
+                        <strong class="history-result {% if scan.health_status == 'Healthy' %}healthy-text{% else %}warning-text{% endif %}">
+                            {{ scan.health_status }} Crop
+                        </strong>
+                        <span>{{ scan.crop.crop_type }} • {{ scan.crop.field_name|default:"Field" }}</span>
+                    </div>
+                    <div class="history-date">{{ scan.scanned_at|date:"d M" }}</div>
+                    <a class="history-arrow" href="{% url 'crop_detail' scan.crop.id %}">→</a>
+                </div>
+                {% empty %}
+                <div class="no-crops-message">
+                    <div>📷</div>
+                    <h3>No scans yet</h3>
+                    <p>Open a crop and upload its first weekly photo.</p>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     WHY SHETIMITRA
+===================================================== -->
+
+    <section class="why-section">
+
+        <div class="why-container">
+
+
+            <!-- VISUAL -->
+
+            <div class="why-visual">
+
+
+                <div class="why-orbit orbit-a"></div>
+
+                <div class="why-orbit orbit-b"></div>
+
+                <div class="why-orbit orbit-c"></div>
+
+
+                <!-- CENTER -->
+
+                <div class="why-center">
+
+                    <div class="why-center-icon">
+                        🌱
+                    </div>
+
+                    <strong>
+                        ShetiMitra
+                    </strong>
+
+                    <small>
+                        SMART FARMING
+                    </small>
+
+                </div>
+
+
+                <!-- ORBIT ICONS -->
+
+                <div class="orbit-icon icon-camera">
+                    📷
+                </div>
+
+                <div class="orbit-icon icon-weather">
+                    ☀️
+                </div>
+
+                <div class="orbit-icon icon-health">
+                    ❤️
+                </div>
+
+                <div class="orbit-icon icon-ai">
+                    📊
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div class="why-content">
+
+                <span class="section-eyebrow">
+                    WHY SHETIMITRA
+                </span>
+
+                <h2>
+                    Farming decisions
+                    made a little easier.
+                </h2>
+
+                <p>
+                    Built around the everyday needs of
+                    farmers, ShetiMitra helps organize
+                    crop information and makes important
+                    farm signals easier to understand.
+                </p>
+
+
+                <div class="why-points">
+
+
+                    <div>
+
+                        <span>✓</span>
+
+                        <p>
+                            Simple and farmer-friendly
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>✓</span>
+
+                        <p>
+                            Crop information in one place
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>✓</span>
+
+                        <p>
+                            Easy monitoring dashboard
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>✓</span>
+
+                        <p>
+                            Designed for practical use
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+    <section class="final-cta">
+
+        <div class="final-cta-glow"></div>
+
+
+        <div class="final-cta-container">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    READY TO CHECK YOUR CROP?
+                </span>
+
+                <h2>
+                    Give your crops
+                    the attention they deserve.
+                </h2>
+
+                <p>
+                    Start a crop scan and keep
+                    your farm health organized.
+                </p>
+
+            </div>
+
+
+            <button class="final-button" id="finalScanButton" type="button">
+
+                <span>📷</span>
+
+                Scan My Crop
+
+                <span>→</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <div class="brand-mark">
+                    🌱
+                </div>
+
+                <div>
+
+                    <strong>
+                        ShetiMitra
+                    </strong>
+
+                    <span>
+                        Smart Farming Companion
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Helping farmers understand,
+                monitor and care for their crops.
+            </p>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 ShetiMitra
+                </span>
+
+                <span>
+                    Built for smarter farming 🌾
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+     CAMERA MODAL
+===================================================== -->
+
+    <div class="camera-modal" id="cameraModal" aria-hidden="true">
+
+
+        <div class="camera-backdrop"></div>
+
+
+        <div class="camera-panel">
+
+
+            <!-- HEADER -->
+
+            <div class="camera-header">
+
+                <div>
+
+                    <span class="camera-eyebrow">
+                        CROP SCANNER
+                    </span>
+
+                    <h2>
+                        Capture your crop
+                    </h2>
+
+                </div>
+
+
+                <button class="camera-close" id="closeCamera" type="button" aria-label="Close camera">
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- CAMERA VIEW -->
+
+            <div class="camera-view">
+
+                <video id="cameraVideo" autoplay playsinline muted></video>
+
+
+                <canvas id="cameraCanvas"></canvas>
+
+
+                <!-- CORNERS -->
+
+                <div class="scan-corners">
+
+                    <span class="corner corner-tl"></span>
+                    <span class="corner corner-tr"></span>
+                    <span class="corner corner-bl"></span>
+                    <span class="corner corner-br"></span>
+
+                </div>
+
+
+                <div class="scan-line"></div>
+
+
+                <div class="camera-message" id="cameraMessage">
+                    Position the crop clearly inside the frame.
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTROLS -->
+
+            <div class="camera-controls">
+
+
+                <button class="camera-secondary" id="switchCameraButton" type="button">
+
+                    🔄
+
+                    Switch Camera
+
+                </button>
+
+
+                <button class="capture-button" id="captureButton" type="button" aria-label="Capture image">
+
+                    <span></span>
+
+                </button>
+
+
+                <button class="camera-secondary" id="closeCameraBottom" type="button">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+
+
+            <!-- CAPTURED IMAGE -->
+
+            <div class="captured-area" id="capturedArea">
+
+                <div class="captured-image-wrap">
+
+                    <img id="capturedImage" src="" alt="Captured crop">
+
+                </div>
+
+
+                <div class="captured-info">
+
+                    <span>
+                        PHOTO READY
+                    </span>
+
+                    <h3>
+                        Crop image captured
+                    </h3>
+
+                    <p>
+                        You can continue to analyse
+                        this crop image.
+                    </p>
+
+
+                    <button class="analyse-button" id="analyseButton" type="button">
+
+                        Analyse Crop →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+     TOAST
+===================================================== -->
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+
+        <div class="toast-icon" id="toastIcon">
+            ✓
+        </div>
+
+
+        <div>
+
+            <strong id="toastTitle">
+                Done
+            </strong>
+
+            <p id="toastMessage">
+                Action completed successfully.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+    <script src="{% static 'js/dashboard.js' %}"></script>
+
+
+</body>
+
+</html>
